@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';
@@ -7,9 +8,17 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   String? uploadcareURL;
 
+  FFUploadedFile? imageBlob;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Backend Call - API (sendBlob)] action in Button widget.
+  ApiCallResponse? apiResult8ys;
 
   @override
   void initState(BuildContext context) {}

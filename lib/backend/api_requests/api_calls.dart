@@ -1,24 +1,23 @@
 import 'dart:convert';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class UploadImageCall {
+class SendBlobCall {
   static Future<ApiCallResponse> call({
-    String? imageUrl = '',
-    String? user = '',
+    FFUploadedFile? blob,
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'upload image',
+      callName: 'sendBlob',
       apiUrl: 'https://x8ki-letl-twmt.n7.xano.io/api:IXZabOoH/upload_image',
       callType: ApiCallType.POST,
       headers: {},
       params: {
-        'image_url': imageUrl,
-        'user': user,
+        'blob': blob,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
